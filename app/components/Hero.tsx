@@ -1,6 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
+
+const QuantumParticles = dynamic(() => import("./QuantumParticles"), { ssr: false });
 
 export default function Hero() {
   const [animated, setAnimated] = useState(false);
@@ -12,6 +15,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden interference-bg pt-16">
+      <QuantumParticles />
       {/* Radial glow behind content */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div
