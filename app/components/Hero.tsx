@@ -14,32 +14,35 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden interference-bg pt-16">
+    <section className="relative min-h-screen overflow-hidden interference-bg">
+      {/* All background layers — absolutely positioned, out of flow */}
       <QuantumParticles />
-      {/* Radial glow behind content */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div
-          className="w-[600px] h-[600px] rounded-full opacity-20"
+          className="w-[700px] h-[700px] rounded-full opacity-15"
           style={{
             background:
-              "radial-gradient(circle, rgba(0,196,180,0.3) 0%, rgba(59,36,114,0.1) 60%, transparent 80%)",
+              "radial-gradient(circle, rgba(0,196,180,0.35) 0%, rgba(59,36,114,0.1) 55%, transparent 75%)",
           }}
         />
       </div>
-
-      {/* Floating equation watermarks */}
       <FloatingEquations />
 
+      {/*
+        Content wrapper: absolute inset-0 guarantees it covers the full
+        min-h-screen section, so justify-center truly vertically centers.
+        pt-20 reserves space for the fixed navbar.
+      */}
       <div
-        className={`relative z-10 flex flex-col items-center text-center px-6 transition-all duration-1000 ${
+        className={`absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-20 pb-10 transition-all duration-1000 ${
           animated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
         {/* Tag line */}
-        <div className="mb-8 flex items-center gap-2">
+        <div className="mb-5 flex items-center gap-2">
           <span className="w-8 h-[1px] bg-[#00c4b4]" />
           <span
-            className="text-[#00c4b4] text-sm font-mono font-medium tracking-[0.25em] uppercase"
+            className="text-[#00c4b4] text-xs font-mono font-medium tracking-[0.25em] uppercase"
             style={{ fontFamily: "'JetBrains Mono', monospace" }}
           >
             Duke&apos;s First Quantum Computing Hackathon
@@ -47,13 +50,13 @@ export default function Hero() {
           <span className="w-8 h-[1px] bg-[#00c4b4]" />
         </div>
 
-        {/* Animated circuit wordmark */}
+        {/* Animated circuit wordmark — tighter max-width so it's not too tall */}
         <CircuitWordmark animated={animated} />
 
-        {/* 2026 and date */}
-        <div className="mt-10 flex flex-col items-center gap-3">
-          <div className="flex items-center gap-6">
-            <span className="w-16 h-[1px] bg-[#3b2472]" />
+        {/* Date + org */}
+        <div className="mt-7 flex flex-col items-center gap-2">
+          <div className="flex items-center gap-4">
+            <span className="w-12 h-[1px] bg-[#3b2472]" />
             <span
               className="text-[#b8a9d9] text-sm font-mono tracking-widest"
               style={{ fontFamily: "'JetBrains Mono', monospace" }}
@@ -61,27 +64,27 @@ export default function Hero() {
               |ψ⟩ ={" "}
               <span className="text-white font-bold">OCT. 24 – 25, 2026</span>
             </span>
-            <span className="w-16 h-[1px] bg-[#3b2472]" />
+            <span className="w-12 h-[1px] bg-[#3b2472]" />
           </div>
           <p className="text-[#b8a9d9] text-sm">
             by the{" "}
             <strong className="text-white">Duke Quantum Information Society</strong>{" "}
             × <strong className="text-[#00c4b4]">HackDuke</strong>
           </p>
-          <p className="text-[#b8a9d9] text-sm mt-1">
+          <p className="text-[#b8a9d9] text-sm">
             Open to{" "}
             <span className="text-white font-semibold">all undergrad, masters, and PhD students</span>
           </p>
         </div>
 
         {/* CTA buttons */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a href="#register" className="gate-btn group">
-            <span className="inline-block w-6 h-[2px] bg-[#00c4b4] mr-0" />
+            <span className="inline-block w-6 h-[2px] bg-[#00c4b4]" />
             <span className="bg-[#00c4b4] text-[#2a1958] font-mono font-bold text-sm tracking-widest px-6 py-3 hover:bg-[#00e5d3] transition-colors">
               Register Now
             </span>
-            <span className="inline-block w-6 h-[2px] bg-[#00c4b4] ml-0" />
+            <span className="inline-block w-6 h-[2px] bg-[#00c4b4]" />
           </a>
           <a
             href="#about"
@@ -91,8 +94,8 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Scroll cue */}
-        <div className="mt-20 flex flex-col items-center gap-2 animate-bounce">
+        {/* Scroll cue — reduced gap so it doesn't crowd CTAs */}
+        <div className="mt-10 flex flex-col items-center gap-2 animate-bounce">
           <span className="text-[#b8a9d9] text-xs font-mono tracking-widest">scroll</span>
           <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
             <rect x="1" y="1" width="14" height="22" rx="7" stroke="#3b2472" strokeWidth="1.5" />
@@ -107,7 +110,7 @@ export default function Hero() {
 /* The DUQUANTUM circuit-style wordmark as inline SVG */
 function CircuitWordmark({ animated }: { animated: boolean }) {
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-3xl mx-auto">
       <svg
         viewBox="0 0 900 280"
         fill="none"

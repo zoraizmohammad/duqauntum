@@ -43,7 +43,7 @@ export default function Schedule() {
     <section
       id="schedule"
       ref={ref}
-      className="relative py-28"
+      className="relative pt-36 pb-32"
       style={{ background: "linear-gradient(180deg, #2a1958 0%, #1e1040 100%)" }}
     >
       {/* Bell state watermark */}
@@ -54,7 +54,7 @@ export default function Schedule() {
         |Φ⁺⟩ = (|00⟩+|11⟩)/√2
       </div>
 
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

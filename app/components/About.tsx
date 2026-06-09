@@ -21,7 +21,7 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="relative py-28 overflow-hidden"
+      className="relative py-32 lg:py-40 overflow-hidden"
       style={{ background: "linear-gradient(180deg, #2a1958 0%, #231449 100%)" }}
     >
       {/* Schrödinger equation watermark */}
@@ -121,8 +121,9 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1.0, delay: 0.2, ease: "easeOut" }}
-            className="relative"
+            className="flex flex-col items-center"
           >
+            {/* Sphere + labels all inside one bounded container */}
             <div className="relative w-full aspect-square max-w-md mx-auto">
               {/* Glow effect behind sphere */}
               <div
@@ -134,23 +135,23 @@ export default function About() {
                 }}
               />
               <BlochSphere />
+
+              {/* Labels — now inside the sphere container so they can't bleed out */}
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 font-mono text-xs text-white/70 tracking-widest pointer-events-none">
+                |0⟩
+              </div>
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 font-mono text-xs text-[#a78bfa]/70 tracking-widest pointer-events-none">
+                |1⟩
+              </div>
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 font-mono text-xs text-[#b8a9d9]/50 pointer-events-none">
+                |−⟩
+              </div>
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs text-[#b8a9d9]/50 pointer-events-none">
+                |+⟩
+              </div>
             </div>
 
-            {/* Labels around sphere */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 font-mono text-xs text-white/70 tracking-widest">
-              |0⟩
-            </div>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs text-[#a78bfa]/70 tracking-widest">
-              |1⟩
-            </div>
-            <div className="absolute left-2 top-1/2 -translate-y-1/2 font-mono text-xs text-[#b8a9d9]/50">
-              |−⟩
-            </div>
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 font-mono text-xs text-[#b8a9d9]/50">
-              |+⟩
-            </div>
-
-            <p className="text-center text-[#b8a9d9] text-xs font-mono mt-4 tracking-wide">
+            <p className="text-center text-[#b8a9d9] text-xs font-mono mt-5 tracking-wide">
               Drag to explore the Bloch sphere
             </p>
           </motion.div>

@@ -38,7 +38,7 @@ export default function Register() {
     <section
       id="register"
       ref={ref}
-      className="relative py-28"
+      className="relative pt-36 pb-32"
       style={{ background: "linear-gradient(180deg, #2a1958 0%, #1e1040 100%)" }}
     >
       {/* QFT watermark */}
@@ -49,7 +49,7 @@ export default function Register() {
         QFT|x⟩ = (1/√N) Σ ω^(xy)|y⟩
       </div>
 
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-8 lg:px-12">
         {/* Register CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

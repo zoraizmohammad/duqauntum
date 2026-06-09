@@ -53,13 +53,13 @@ export default function Speakers() {
     <section
       id="speakers"
       ref={ref}
-      className="relative py-28"
+      className="relative pt-36 pb-32"
       style={{ background: "#1e1040" }}
     >
       {/* Ising model lattice watermark */}
       <IsingLattice />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-6xl mx-auto px-8 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

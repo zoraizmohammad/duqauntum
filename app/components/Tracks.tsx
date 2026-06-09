@@ -44,7 +44,7 @@ export default function Tracks() {
     <section
       id="tracks"
       ref={ref}
-      className="relative py-28"
+      className="relative pt-36 pb-32"
       style={{
         background: "linear-gradient(180deg, #231449 0%, #2a1958 100%)",
       }}
@@ -82,7 +82,7 @@ export default function Tracks() {
         </svg>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-6xl mx-auto px-8 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -112,7 +112,7 @@ export default function Tracks() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {tracks.map((track, i) => (
             <TrackCard key={track.name} track={track} index={i} inView={inView} />
           ))}

@@ -47,10 +47,10 @@ export default function Sponsors() {
     <section
       id="sponsors"
       ref={ref}
-      className="relative py-28"
+      className="relative pt-36 pb-32"
       style={{ background: "linear-gradient(180deg, #1e1040 0%, #2a1958 100%)" }}
     >
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
